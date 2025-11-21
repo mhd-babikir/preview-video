@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Video Player</title>
+  <style>
+    video { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+
+<h2>Video Player</h2>
+
+<video id="player" controls></video>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const src = params.get("src");
+
+  if (src) {
+    const video = document.getElementById("player");
+    video.src = src;
+  } else {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      "<p>No video source provided. Add ?src=URL</p>"
+    );
+  }
+</script>
+
+</body>
+</html>
